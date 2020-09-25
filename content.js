@@ -5,9 +5,9 @@ function(message, sender, sendResponse) {
     }
     else if (message.messageId === 'writeToClipboard'){
         navigator.clipboard.writeText(message.value.toString()).then(() => {
-            console.log('Wrote results to clipboard');
+            // console.log('Wrote results to clipboard');
         }, function(e) {
-            console.warn(e);
+            // console.warn(e);
         });
     }
     //Todo: should use this to send back useful information
@@ -23,7 +23,7 @@ const DIALOGUE_STYLE = {
     textAlign: 'left',
     color: '#000000',
     background: '#ededed',
-    borderRadius: '1px',
+    borderRadius: '3px',
     borderStyle: 'solid',
     borderWidth: '2px',
     borderColor: '#000000',
@@ -41,13 +41,13 @@ let mouseY = 0;
 function onMouseUpdate(e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    console.log(e.clientX, e.clientY);
+    // console.log(e.clientX, e.clientY);
 }
 
 document.addEventListener('mousemove', onMouseUpdate, false);
 
 function createDialogue(dialogueMessage){
-    console.log(dialogueMessage);
+    // console.log(dialogueMessage);
     const dialogueElem = document.createElement('div');
 
     let style = {...DIALOGUE_STYLE, top: `${mouseY+DIALOGUE_Y_OFFSET}px`, left: `${mouseX+DIALOGUE_X_OFFSET}px`};

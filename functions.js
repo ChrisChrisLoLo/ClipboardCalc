@@ -21,7 +21,7 @@ function copyInput(){
         code: "window.getSelection().toString();"
     }, function(selection) {
         if(selection[0] != null){
-            console.log(selection[0]);
+            // console.log(selection[0]);
             attemptPushingOperation(selection[0]);
         }
     });
@@ -133,7 +133,7 @@ function displayOperations(){
 function printDialogue(dialogueMessage){
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {messageId: 'dialogue', dialogueMessage: dialogueMessage}, function(response) {
-            console.log(`Message "${dialogueMessage}" sent`);
+            // console.log(`Message "${dialogueMessage}" sent`);
         });
     });
 }
@@ -141,7 +141,7 @@ function printDialogue(dialogueMessage){
 function sendToClipboard(value){
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {messageId: 'writeToClipboard', value: value}, function(response) {
-            console.log(`Clipboard value "${value}" sent`);
+            // console.log(`Clipboard value "${value}" sent`);
         });
     });
 }
