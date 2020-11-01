@@ -69,9 +69,7 @@ function pasteResult(){
         });
 
         // Reset the operator to addition
-        chrome.storage.sync.set({currOp:'+'}, (setResult)=>{
-            printDialogue('+');
-        });
+        chrome.storage.sync.set({currOp:'+'}, (setResult)=>{});
 
     });
 }
