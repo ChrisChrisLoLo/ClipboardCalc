@@ -50,7 +50,7 @@ function attemptPushingOperation(value){
 
 /**
  * Calculate the result of the op array and writes it to the clip board.
- * Clears the op array afterwards.
+ * Clears the op array afterwards, and resets the operator to addition.
  */
 function pasteResult(){
     chrome.storage.sync.get(['opArr'], (getResult)=>{
@@ -67,6 +67,12 @@ function pasteResult(){
         chrome.storage.sync.set({opArr:[]}, ()=>{
             printDialogue(`Calculated ${result}`)
         });
+
+        // Reset the operator to addition
+        chrome.storage.sync.set({currOp:'+'}, (setResult)=>{
+            printDialogue('+');
+        });
+
     });
 }
 
